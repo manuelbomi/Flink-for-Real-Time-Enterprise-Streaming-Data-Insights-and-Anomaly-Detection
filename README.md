@@ -28,14 +28,23 @@ This project was developed on Windows Subsystem for Linux (WSL) to simulate a pr
 
 - Zookeeper and Kafka were installed locally.
 
+- Start Kafka
+- 
+<img width="1256" height="446" alt="Image" src="https://github.com/user-attachments/assets/3f95900d-2c85-41d7-9fb6-d8fe9f9a7750" />
+
 - Kafka topics created:
 
 ```python
 bin/kafka-topics.sh --create --topic sensor-data_2 --bootstrap-server localhost:9092
 ```
 
+<img width="1280" height="720" alt="Image" src="https://github.com/user-attachments/assets/eaf3b37c-318e-4ecc-9fcd-af9b099cdcc4" />
+
+
+
+
 > [!NOTE]
-> Interested readers may also check another similar Flink project here: https://github.com/manuelbomi/Flink-and-Kafka-Based-Real-Time-Data-Engineering-Pipeline    for furthe insights on how to set up the project
+> Interested readers may also check another similar Flink project here: https://github.com/manuelbomi/Flink-and-Kafka-Based-Real-Time-Data-Engineering-Pipeline    for furthee details regarding how to install Kafka and Flink on WSL/Linux systems
 > 
 
 - Producer streams sensor events into Kafka:
@@ -51,8 +60,8 @@ bin/kafka-console-producer.sh --topic sensor-data_2 --bootstrap-server localhost
   ```
 
   ---
-
-  ### 2. Apache Flink Cluster:
+  
+### 2. Apache Flink Cluster:
 
 - Flink standalone cluster setup (start-cluster.sh) with a JobManager and TaskManager, mirroring a minimal production deployment.
 
@@ -118,6 +127,35 @@ bin/kafka-server-start.sh config/server.properties
 ```
 > [!TIP]
 > Interested readers can download the **flink_kafka_anomaly_detection_job.py** and the **flink-conf.yaml** files from this project repo
+>
 > 
 
+### 4. Tail Logs for Real-Time Output:
 
+```python
+tail -f ~/flink-1.19.1/log/flink-*-taskexecutor-*.out
+```
+
+Detected anomalies will appear as they are processed.
+
+---
+
+## Production-Like Setup Notes
+
+- Standalone Flink cluster with a JobManager and TaskManager simulates a single-node production environment.
+
+- Kafka topics and producer/consumer mimic enterprise streaming setups.
+
+- Windowing, keyed streams, and PyFlink operators simulate stateful streaming analytics, common in real-time monitoring systems.
+
+---
+
+## Potential Enhancements
+
+- Replace print() with Kafka sinks to push anomalies to monitoring dashboards.
+
+- Use dynamic thresholds or ML-based anomaly detection for adaptive monitoring.
+
+- Extend for multi-topic streams with multiple sensor types or system metrics.
+
+- Deploy Flink in high-availability mode for fault tolerance.
