@@ -35,5 +35,5 @@ bin/kafka-topics.sh --create --topic sensor-data_2 --bootstrap-server localhost:
 ```
 
 > [!NOTE]
-> Interested readers may also check another similar Flink project here:    for furthe insights on how to set up the project
+> Interested readers may also check another similar Flink project here: https://github.com/manuelbomi/Apache-Flink-Kafka-Based-Real-Time-Data-Engineering-Pipeline    for furthe insights on how to set up the project
 > 
