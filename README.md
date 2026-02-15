@@ -84,9 +84,11 @@ The Flink job consumes Kafka topic sensor-data_2 using a KafkaSource with Simple
 
 - Anomalies are flagged if a sensor reading deviates by more than 50 units from the current window average.
 
-  ```python
+```python
+
 ANOMALY → sensor_1: value=150.0, avg=59.21
 ANOMALY → sensor_1: value=180.0, avg=112.5
 ANOMALY → sensor_1: value=45.0, avg=112.5
+
 ```
 
