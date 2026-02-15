@@ -28,9 +28,17 @@ This project was developed on Windows Subsystem for Linux (WSL) to simulate a pr
 
 - Zookeeper and Kafka were installed locally.
 
+> [!NOTE]
+> Interested readers may also check another similar Flink project here: https://github.com/manuelbomi/Flink-and-Kafka-Based-Real-Time-Data-Engineering-Pipeline    for furthee details regarding how to install Kafka and Flink on WSL/Linux systems
+> 
+
 - Start Kafka
-- 
+
 <img width="1256" height="446" alt="Image" src="https://github.com/user-attachments/assets/3f95900d-2c85-41d7-9fb6-d8fe9f9a7750" />
+
+- Start Zookeeper
+
+<img width="1280" height="720" alt="Image" src="https://github.com/user-attachments/assets/eaf3b37c-318e-4ecc-9fcd-af9b099cdcc4" />
 
 - Kafka topics created:
 
@@ -38,14 +46,8 @@ This project was developed on Windows Subsystem for Linux (WSL) to simulate a pr
 bin/kafka-topics.sh --create --topic sensor-data_2 --bootstrap-server localhost:9092
 ```
 
-<img width="1280" height="720" alt="Image" src="https://github.com/user-attachments/assets/eaf3b37c-318e-4ecc-9fcd-af9b099cdcc4" />
+<img width="1235" height="354" alt="Image" src="https://github.com/user-attachments/assets/0e9db01c-8cad-4611-a3e0-bbd2d97ead58" />
 
-
-
-
-> [!NOTE]
-> Interested readers may also check another similar Flink project here: https://github.com/manuelbomi/Flink-and-Kafka-Based-Real-Time-Data-Engineering-Pipeline    for furthee details regarding how to install Kafka and Flink on WSL/Linux systems
-> 
 
 - Producer streams sensor events into Kafka:
 
@@ -53,11 +55,15 @@ bin/kafka-topics.sh --create --topic sensor-data_2 --bootstrap-server localhost:
 bin/kafka-console-producer.sh --topic sensor-data_2 --bootstrap-server localhost:9092
 ```
 
+<img width="1057" height="184" alt="Image" src="https://github.com/user-attachments/assets/582f14db-a0f4-4cd8-a495-6c65d2ff9a0a" />
+
 - Consumer can validate incoming events:
 
   ```python
   bin/kafka-console-consumer.sh --topic sensor-data_2 --bootstrap-server localhost:9092 --from-beginning
   ```
+
+<img width="989" height="124" alt="Image" src="https://github.com/user-attachments/assets/d8b45df9-a160-452b-b4cc-7fe30e40ea42" />
 
   ---
   
@@ -120,15 +126,32 @@ bin/kafka-server-start.sh config/server.properties
 ./bin/start-cluster.sh
 ```
 
+<img width="1226" height="132" alt="6 Start Flink cluster" src="https://github.com/user-attachments/assets/cf9133ef-9f81-44d5-b851-b0ffdd0f0bb8" />
+
+Run **jps** to verify that all needed processes are running as they should
+
+<img width="1111" height="214" alt="Image" src="https://github.com/user-attachments/assets/098d018b-3eaa-4bb2-888b-ecc04c553560" />
+
+
 ### 3. Run PyFlink Job:
 
 ```python
 ./bin/flink run -py flink_kafka_anomaly_detection_job.py
 ```
+
+<img width="1280" height="434" alt="Image" src="https://github.com/user-attachments/assets/4f6bb84c-9934-48d8-afc5-4f6a0092fdb6" />
+
 > [!TIP]
 > Interested readers can download the **flink_kafka_anomaly_detection_job.py** and the **flink-conf.yaml** files from this project repo
->
 > 
+
+Flink UI can be accessed at: http://http://localhost:8081/
+
+
+<img width="1269" height="572" alt="8b Flink UI with increased Taskmanagers" src="https://github.com/user-attachments/assets/24ef58c7-15e6-4ffa-9ab9-6dfc4ca91282" />
+
+
+
 
 ### 4. Tail Logs for Real-Time Output:
 
