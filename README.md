@@ -161,6 +161,10 @@ tail -f ~/flink-1.19.1/log/flink-*-taskexecutor-*.out
 
 Detected anomalies will appear as they are processed.
 
+<img width="1280" height="248" alt="Image" src="https://github.com/user-attachments/assets/e0fa810d-00cc-4c27-b885-5db8cbad27a1" />
+
+<img width="1276" height="196" alt="Image" src="https://github.com/user-attachments/assets/4fa5e7e7-d803-453d-b5a7-49511581564a" />
+
 ---
 
 ## Production-Like Setup Notes
