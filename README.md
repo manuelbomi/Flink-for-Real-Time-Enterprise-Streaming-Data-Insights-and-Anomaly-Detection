@@ -92,3 +92,32 @@ ANOMALY → sensor_1: value=45.0, avg=112.5
 
 ```
 
+---
+
+## Running the Project
+
+On WSL or Linux:
+
+### 1. Start Kafka and Zookeeper:
+
+```python
+bin/zookeeper-server-start.sh config/zookeeper.properties
+bin/kafka-server-start.sh config/server.properties
+```
+
+### 2. Start Flink Cluster:
+
+```python
+./bin/start-cluster.sh
+```
+
+### 3. Run PyFlink Job:
+
+```python
+./bin/flink run -py flink_kafka_anomaly_detection_job.py
+```
+> [!TIP]
+> Interested readers can download the **flink_kafka_anomaly_detection_job.py** and the **flink-conf.yaml** files from this project repo
+> 
+
+
