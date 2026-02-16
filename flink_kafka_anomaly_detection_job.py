@@ -38,7 +38,7 @@ def main():
     kafka_source = (
         KafkaSource.builder()
         .set_bootstrap_servers("localhost:9092")
-        .set_topics("sensor-data_2")   # ✅ FIXED
+        .set_topics("sensor-data_2")   #  FIXED
         .set_group_id("flink-anomaly-group")
         .set_value_only_deserializer(SimpleStringSchema())
         .build()
@@ -68,4 +68,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
