@@ -19,7 +19,7 @@ Entertainment & Hospitality: Track real-time user interactions or system metrics
 Real-time processing ensures that businesses can act immediately, rather than relying on batch analytics, which may be too slow for critical decision-making.
 
 > [!IMPORTANT]
-> A Java (Maven based) implementation of the project is available here:   https://github.com/manuelbomi/Flink-Real-Time-Anomaly-Detection-for-Enterprise-Streaming-Data---Java-and-Kafka-and-Maven
+> A Java (Maven based) implementation of the project is available here:   https://github.com/manuelbomi/Flink-Real-Time-Anomaly-Detection-for-Enterprise-Streaming-Data---Flink-and-Java-and-Kafka-and-Maven
 >
 
 ---
